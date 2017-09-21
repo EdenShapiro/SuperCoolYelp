@@ -1,0 +1,6 @@
+framework module Pods_SuperCoolYelp {
+  umbrella header "Pods-SuperCoolYelp-umbrella.h"
+
+  export *
+  module * { export * }
+}
