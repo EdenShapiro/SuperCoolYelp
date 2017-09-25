@@ -8,28 +8,35 @@
 
 import UIKit
 import KRProgressHUD
+import CoreLocation
 
-class BusinessesVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate {
+class BusinessesVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var mapButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    var locationManager: CLLocationManager!
+    var userLocation: CLLocation?
     var businesses: [Business]!
+    
     var loadingMoreView = UIActivityIndicatorView(activityIndicatorStyle: .gray )
     var isMoreDataLoading = false
+
+    
+    var preferences: Preferences = Preferences() {
+        didSet {
+            updateSearch()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableViewAutomaticDimension
-        for view in searchBar.subviews.last!.subviews {
-            if type(of: view) == NSClassFromString("UISearchBarBackground") {
-                view.alpha = 0.0
-            }
-        }
+        searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
         
         // Heads Up Display
         KRProgressHUD.set(style: .black)
@@ -37,6 +44,7 @@ class BusinessesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         KRProgressHUD.set(activityIndicatorViewStyle: .gradationColor(head: UIColor.YelpColors.Red, tail: UIColor.YelpColors.DarkRed))
         KRProgressHUD.show(withMessage: "Loading results...")
         
+//        updateSearch()
         
         Business.searchWithTerm(term: "Thai", completion: { (businesses: [Business]?, error: Error?) -> Void in
             
@@ -58,22 +66,13 @@ class BusinessesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         loadingMoreView.center = tableFooterView.center
         tableFooterView.insertSubview(loadingMoreView, at: 0)
         self.tableView.tableFooterView = tableFooterView
-        
-        
-        
-        
-        /* Example of Yelp search with more search options specified
-         Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
-         self.businesses = businesses
-         
-         for business in businesses {
-         print(business.name!)
-         print(business.address!)
-         }
-         }
-         */
-        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        determineMyCurrentLocation()
+    }
+
 //    =========================================== TableView Methods ===========================================
 
     
@@ -97,18 +96,108 @@ class BusinessesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     //    =========================================== Other Methods ===========================================
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let searchTerm = searchBar.text {
-            KRProgressHUD.show(withMessage: "Loading results...")
-            Business.searchWithTerm(term: searchTerm, completion: { (businesses: [Business]?, error: Error?) -> Void in
-                
-                self.businesses = businesses
-                self.tableView.reloadData()
-                KRProgressHUD.showSuccess(withMessage: "Success!")
-
-            })
+    func determineMyCurrentLocation() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+            locationManager.startMonitoringSignificantLocationChanges()
+            print("startUpdatingLocation")
         }
     }
+    
+    // Updated location callback
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        userLocation = locations[0] as CLLocation
+        print("didUpdateLocations called")
+        // TODO: Call stopUpdatingLocation() to stop listening for location updates,
+        // other wise this function will be called every time when user location changes.
+        // manager.stopUpdatingLocation()
+        
+        print("user latitude = \(userLocation!.coordinate.latitude)")
+        print("user longitude = \(userLocation!.coordinate.longitude)")
+        
+    }
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        updateSearch()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showFiltersSegue" {
+            // we wrapped our PreferencesTableViewController inside a UINavigationController
+            let navController = segue.destination as! UINavigationController
+            
+            let filtersVC = navController.topViewController as! FiltersVC
+            filtersVC.currentPrefs = self.preferences
+            print("set filtersVC's prefs")
+        }
+    }
+    
+    func updateSearch(){
+        let searchTerm = searchBar.text ?? ""
+        let userLocation = self.userLocation ?? CLLocation(latitude: 37.785771, longitude: -122.406165)
+        let lat = userLocation.coordinate.latitude
+        let long = userLocation.coordinate.longitude
+        
+        let sort = preferences.getSortByEnum()
+        let radius = preferences.getDistanceEnum()
+        let categories = preferences.getArrayOfCategories()
+//        let deals = preferences.getDeals()
+        let openNow = preferences.getOpenNow()
+        
+        KRProgressHUD.show(withMessage: "Loading results...")
+        
+        
+        Business.searchWithTerm(term: searchTerm, userLocation: (lat, long), sort: sort, radius: radius, openNow: openNow, categories: categories, deals: nil, completion: { (businesses: [Business]?, error: Error?) -> Void in
+            
+            self.businesses = businesses
+            print(businesses ?? "none")
+            self.tableView.reloadData()
+            KRProgressHUD.showSuccess(withMessage: "Success!")
+            
+            })
+        
+        print("IN UPDATE SEARCH")
+    }
+//         Example of Yelp search with more search options specified
+//        Business.searchWithTerm(term: searchTerm, sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
+//         self.businesses = businesses
+//         
+//         for business in businesses {
+//         print(business.name!)
+//         print(business.address!)
+//         }
+//         }
+ 
+ 
+    
+    
+    @IBAction func didSavePreferences(segue: UIStoryboardSegue) {
+        if let prefsVC = segue.source as? FiltersVC {
+            self.preferences = prefsVC.preferencesFromTableData()
+        }
+        
+    }
+    
+    @IBAction func didCancelPreferences(segue: UIStoryboardSegue) {
+        print("FILTERS CANCELLED")
+    }
+    
+//    @IBAction func filterButtonClicked(_ sender: Any) {
+//        if let filtersVC = storyboard?.instantiateViewController(withIdentifier: "FiltersVC"){
+////            filtersVC.modalTransitionStyle = .coverVertical
+//            filtersVC.isModalInPopover = true
+//            self.navigationController?.pushViewController(filtersVC, animated: true)
+//        }
+//    }
+    
+    
+    
     
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

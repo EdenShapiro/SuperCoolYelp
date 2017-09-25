@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0011A718E5ABD94158A366E3 /* Pods_SuperCoolYelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF1D7039EBA0EA5CB527219 /* Pods_SuperCoolYelp.framework */; };
-		222D8A6019CCF9F900D2DB53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222D8A5E19CCF9F900D2DB53 /* Main.storyboard */; };
-		222D8A6519CCF9F900D2DB53 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222D8A6319CCF9F900D2DB53 /* LaunchScreen.xib */; };
 		B40135A0B7670EB57E63E82C /* Pods_YelpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2825EB030B34D5A7EADE2B8 /* Pods_YelpTests.framework */; };
 		D41A2FB127AC41B0413172B0 /* Pods_SuperCoolYelpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF0D4E6EC326F479C3543CC /* Pods_SuperCoolYelpTests.framework */; };
 		F2401A5F1F732C7300852E18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401A5E1F732C7300852E18 /* AppDelegate.swift */; };
@@ -23,6 +21,10 @@
 		F2401A731F732E9A00852E18 /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401A721F732E9A00852E18 /* BusinessCell.swift */; };
 		F2401A751F732EA700852E18 /* FiltersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401A741F732EA700852E18 /* FiltersCell.swift */; };
 		F2401ABE1F7338B100852E18 /* SuperCoolYelpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401A681F732C9D00852E18 /* SuperCoolYelpTests.swift */; };
+		F2474B3E1F75C74C00E88EFF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2474B3D1F75C74C00E88EFF /* Constants.swift */; };
+		F2565DFE1F74341000A0F8A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2565DFD1F74341000A0F8A7 /* Main.storyboard */; };
+		F2565E021F74347B00A0F8A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2565E011F74347B00A0F8A7 /* LaunchScreen.storyboard */; };
+		F2565E041F74351F00A0F8A7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2565E031F74351F00A0F8A7 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +41,6 @@
 		07B655669223F692A9F978E4 /* Pods-SuperCoolYelpTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperCoolYelpTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperCoolYelpTests/Pods-SuperCoolYelpTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0CC77CFF6015F4EF04112502 /* Pods-SuperCoolYelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperCoolYelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperCoolYelp/Pods-SuperCoolYelp.debug.xcconfig"; sourceTree = "<group>"; };
 		222D8A5519CCF9F900D2DB53 /* SuperCoolYelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperCoolYelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		222D8A5919CCF9F900D2DB53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		222D8A5F19CCF9F900D2DB53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		222D8A6419CCF9F900D2DB53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		222D8A6A19CCF9F900D2DB53 /* SuperCoolYelpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuperCoolYelpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CF0D4E6EC326F479C3543CC /* Pods_SuperCoolYelpTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperCoolYelpTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65BE74355536442EA43EF84C /* Pods-Yelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-Yelp/Pods-Yelp.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +62,10 @@
 		F2401A721F732E9A00852E18 /* BusinessCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BusinessCell.swift; path = SuperCoolYelp/BusinessCell.swift; sourceTree = SOURCE_ROOT; };
 		F2401A741F732EA700852E18 /* FiltersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FiltersCell.swift; path = SuperCoolYelp/FiltersCell.swift; sourceTree = SOURCE_ROOT; };
 		F2401ABF1F733F9500852E18 /* KRProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KRProgressHUD.framework; path = "../../Library/Developer/Xcode/DerivedData/SuperCoolYelp-afdobcefjxkiticantswqfraunda/Build/Products/Debug-iphonesimulator/KRProgressHUD/KRProgressHUD.framework"; sourceTree = "<group>"; };
+		F2474B3D1F75C74C00E88EFF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = SOURCE_ROOT; };
+		F2565DFD1F74341000A0F8A7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = SuperCoolYelp/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		F2565E011F74347B00A0F8A7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = SuperCoolYelp/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		F2565E031F74351F00A0F8A7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SuperCoolYelp/Info.plist; sourceTree = SOURCE_ROOT; };
 		F5E92B218B9EB8848ECF9164 /* Pods-Yelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Yelp/Pods-Yelp.debug.xcconfig"; sourceTree = "<group>"; };
 		FA3CD87BBD05A7317D1183D1 /* Pods_Yelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE127178BE807CE1DC04A58C /* Pods-YelpTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YelpTests/Pods-YelpTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,9 +120,9 @@
 				222D8A7A19CCFAAA00D2DB53 /* API */,
 				22AAAA9D1AEA1EC600A544AF /* View Controllers */,
 				F29B94631F71A72E00CA4BAC /* Cells */,
-				222D8A5E19CCF9F900D2DB53 /* Main.storyboard */,
+				F2565DFD1F74341000A0F8A7 /* Main.storyboard */,
 				F2401A661F732C8E00852E18 /* Images.xcassets */,
-				222D8A6319CCF9F900D2DB53 /* LaunchScreen.xib */,
+				F2565E011F74347B00A0F8A7 /* LaunchScreen.storyboard */,
 				222D8A5819CCF9F900D2DB53 /* Supporting Files */,
 			);
 			name = SuperCoolYelp;
@@ -129,7 +132,7 @@
 		222D8A5819CCF9F900D2DB53 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				222D8A5919CCF9F900D2DB53 /* Info.plist */,
+				F2565E031F74351F00A0F8A7 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				F2401A6A1F732CBC00852E18 /* Business.swift */,
+				F2474B3D1F75C74C00E88EFF /* Constants.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -306,9 +310,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2401A6F1F732CD700852E18 /* Info.plist in Resources */,
-				222D8A6019CCF9F900D2DB53 /* Main.storyboard in Resources */,
 				F2401A671F732C8E00852E18 /* Images.xcassets in Resources */,
-				222D8A6519CCF9F900D2DB53 /* LaunchScreen.xib in Resources */,
+				F2565DFE1F74341000A0F8A7 /* Main.storyboard in Resources */,
+				F2565E021F74347B00A0F8A7 /* LaunchScreen.storyboard in Resources */,
+				F2565E041F74351F00A0F8A7 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +429,7 @@
 				F2401A6D1F732CC700852E18 /* YelpClient.swift in Sources */,
 				F2401A731F732E9A00852E18 /* BusinessCell.swift in Sources */,
 				F2401A651F732C8400852E18 /* MapVC.swift in Sources */,
+				F2474B3E1F75C74C00E88EFF /* Constants.swift in Sources */,
 				F2401A631F732C8400852E18 /* BusinessesVC.swift in Sources */,
 				F2401A751F732EA700852E18 /* FiltersCell.swift in Sources */,
 				F2401A641F732C8400852E18 /* FiltersVC.swift in Sources */,
@@ -447,25 +453,6 @@
 			targetProxy = 222D8A6B19CCF9F900D2DB53 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		222D8A5E19CCF9F900D2DB53 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				222D8A5F19CCF9F900D2DB53 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		222D8A6319CCF9F900D2DB53 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				222D8A6419CCF9F900D2DB53 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		222D8A7219CCF9F900D2DB53 /* Debug */ = {
@@ -562,13 +549,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 875WVS57Q6;
-				INFOPLIST_FILE = Yelp/Info.plist;
+				INFOPLIST_FILE = SuperCoolYelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codepath.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 			};
 			name = Debug;
 		};
@@ -579,12 +567,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 875WVS57Q6;
-				INFOPLIST_FILE = Yelp/Info.plist;
+				INFOPLIST_FILE = SuperCoolYelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codepath.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 			};
 			name = Release;
 		};

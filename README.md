@@ -22,7 +22,7 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 - [ ] Search results page
-   - [x] Infinite scroll for restaurant results.
+   - [ ] Infinite scroll for restaurant results.
    - [ ] Implement map view of restaurant results.
 - [ ] Filter page
    - [ ] Implement a custom switch instead of the default UISwitch.
@@ -67,3 +67,12 @@ Describe any challenges encountered while building the app.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+
+["Checked"](https://thenounproject.com/search/?q=circle%20check&i=214747) icon by Michelle Fosse from [the Noun Project](http://thenounproject.com/)
+["Circle"](https://thenounproject.com/search/?q=circle&i=1166285) icon by Zaff Studio from [the Noun Project](http://thenounproject.com/)
+["Dropdown"](https://thenounproject.com/search/?q=dropdown&i=1270388) icon by Trident from [the Noun Project](http://thenounproject.com/)
+
+
+["Star"](https://thenounproject.com/term/star/797006/) by Vladimir Belochkin from [the Noun Project](http://thenounproject.com/)
+["Popcorn"](https://thenounproject.com/term/popcorn/706499/) by Cassandra Cappello from [the Noun Project](http://thenounproject.com/)
