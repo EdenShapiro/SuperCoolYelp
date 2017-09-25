@@ -37,7 +37,7 @@ class BusinessesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableViewAutomaticDimension
         searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
-        
+        searchBar.delegate = self
         // Heads Up Display
         KRProgressHUD.set(style: .black)
         KRProgressHUD.set(font: .systemFont(ofSize: 15))
@@ -110,6 +110,7 @@ class BusinessesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         updateSearch(searchText: searchBar.text)
+        print("search bar search button clicked!")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -139,7 +140,6 @@ class BusinessesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let openNow = preferences.getOpenNow()
         
         KRProgressHUD.show(withMessage: "Loading results...")
-        
         
         Business.searchWithTerm(term: searchTerm, userLocation: (lat, long), sort: sort, radius: radius, openNow: openNow, categories: categories, deals: deals, completion: { (businesses: [Business]?, error: Error?) -> Void in
             
