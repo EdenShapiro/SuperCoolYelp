@@ -37,6 +37,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 1. I'd like to know how people organized their filters pages and what structures they used.
 2. I'd like to talk more about the infinite scrolling and how to use the offset and limit parameters. 
+3. Should the preferences object been a struct? Did people use a class or a struct to keep track of their users' preferences/filters?
 
 ## Video Walkthrough
 
