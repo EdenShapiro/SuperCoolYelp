@@ -1,6 +1,6 @@
 # Project 2 - *SuperCoolYelp*
 
-**Name of your app** is a Yelp search app using the [Yelp API](http://www.yelp.com/developers/documentation/v2/search_api).
+**SuperCoolYelp** is a Yelp search app using the [Yelp API](http://www.yelp.com/developers/documentation/v2/search_api).
 
 Time spent: **30** hours spent in total
 
@@ -23,37 +23,39 @@ The following **optional** features are implemented:
 
 - [x] Search results page
    - [x] Infinite scroll for restaurant results.
-   - [ ] Implement map view of restaurant results.
 - [x] Filter page
-   - [ ] Implement a custom switch instead of the default UISwitch.
+   - [x] Implement a custom switch instead of the default UISwitch.
    - [x] Distance filter should expand as in the real Yelp app
-   - [ ] Categories should show a subset of the full list with a "See All" row to expand. Category list is [here](http://www.yelp.com/developers/documentation/category_list).
-- [ ] Implement the restaurant detail page.
 
 The following **additional** features are implemented:
 
 - [x] Add row numbers to results name, like the real Yelp app`
+- [x] Get and use user location (without displaying map)
+
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1. https://www.yelp.com/developers/documentation/v3/authentication, https://www.yelp.com/developers/documentation/v3/get_started
-2.
+1. I'd like to know how people organized their filters pages and what structures they used.
+2. I'd like to talk more about the infinite scrolling and how to use the offset and limit parameters. 
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
-
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+Here's a walkthrough of implemented user stories:  
+<img src='http://i.imgur.com/xxLQFN1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />  
+<img src='http://i.imgur.com/fD2jpHu.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />  
+<img src='http://i.imgur.com/ZsrcuHm.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />  
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Challenges:  
+-Creating the dropdown cells was very challenging, and took me nearly 2 days.  
+-I'd tried to use the newest version of the Yelp API, V3, but realized it would take way more time than we're afforded to finish the project. https://www.yelp.com/developers/documentation/v3/authentication, https://www.yelp.com/developers/documentation/v3/get_started  
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2017] [Eden Shapiro]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -68,10 +70,6 @@ Describe any challenges encountered while building the app.
     limitations under the License.
 
 
-["Checked"](https://thenounproject.com/search/?q=circle%20check&i=214747) icon by Michelle Fosse from [the Noun Project](http://thenounproject.com/)
-["Circle"](https://thenounproject.com/search/?q=circle&i=1166285) icon by Zaff Studio from [the Noun Project](http://thenounproject.com/)
-["Dropdown"](https://thenounproject.com/search/?q=dropdown&i=1270388) icon by Trident from [the Noun Project](http://thenounproject.com/)
-
-
-["Star"](https://thenounproject.com/term/star/797006/) by Vladimir Belochkin from [the Noun Project](http://thenounproject.com/)
-["Popcorn"](https://thenounproject.com/term/popcorn/706499/) by Cassandra Cappello from [the Noun Project](http://thenounproject.com/)
+["Checked"](https://thenounproject.com/search/?q=circle%20check&i=214747) icon by Michelle Fosse from [the Noun Project](http://thenounproject.com/)  
+["Circle"](https://thenounproject.com/search/?q=circle&i=1166285) icon by Zaff Studio from [the Noun Project](http://thenounproject.com/)  
+["Dropdown"](https://thenounproject.com/search/?q=dropdown&i=1270388) icon by Trident from [the Noun Project](http://thenounproject.com/)  
