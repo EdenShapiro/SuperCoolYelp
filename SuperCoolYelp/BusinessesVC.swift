@@ -27,7 +27,7 @@ class BusinessesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     var preferences: Preferences = Preferences() {
         didSet {
-            updateSearch()
+            updateSearch(searchText: self.searchBar.text)
         }
     }
     
@@ -44,22 +44,7 @@ class BusinessesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         KRProgressHUD.set(activityIndicatorViewStyle: .gradationColor(head: UIColor.YelpColors.Red, tail: UIColor.YelpColors.DarkRed))
         KRProgressHUD.show(withMessage: "Loading results...")
         
-//        updateSearch()
-        
-        Business.searchWithTerm(term: "Thai", completion: { (businesses: [Business]?, error: Error?) -> Void in
-            
-            self.businesses = businesses
-            self.tableView.reloadData()
-            KRProgressHUD.showSuccess(withMessage: "Success!")
-            if let businesses = businesses {
-                for business in businesses {
-                    print(business.name!)
-                    print(business.address!)
-                }
-            }
-            
-            }
-        )
+        updateSearch(searchText: "food")
         
         // Infinite scrolling indicator
         let tableFooterView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
@@ -124,7 +109,7 @@ class BusinessesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        updateSearch()
+        updateSearch(searchText: searchBar.text)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -138,8 +123,11 @@ class BusinessesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
     
-    func updateSearch(){
-        let searchTerm = searchBar.text ?? ""
+    
+    
+    
+    func updateSearch(searchText: String?){
+        let searchTerm = searchText ?? "food"
         let userLocation = self.userLocation ?? CLLocation(latitude: 37.785771, longitude: -122.406165)
         let lat = userLocation.coordinate.latitude
         let long = userLocation.coordinate.longitude
@@ -147,13 +135,13 @@ class BusinessesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let sort = preferences.getSortByEnum()
         let radius = preferences.getDistanceEnum()
         let categories = preferences.getArrayOfCategories()
-//        let deals = preferences.getDeals()
+        let deals = preferences.getDeals()
         let openNow = preferences.getOpenNow()
         
         KRProgressHUD.show(withMessage: "Loading results...")
         
         
-        Business.searchWithTerm(term: searchTerm, userLocation: (lat, long), sort: sort, radius: radius, openNow: openNow, categories: categories, deals: nil, completion: { (businesses: [Business]?, error: Error?) -> Void in
+        Business.searchWithTerm(term: searchTerm, userLocation: (lat, long), sort: sort, radius: radius, openNow: openNow, categories: categories, deals: deals, completion: { (businesses: [Business]?, error: Error?) -> Void in
             
             self.businesses = businesses
             print(businesses ?? "none")

@@ -70,30 +70,30 @@ class YelpClient: BDBOAuth1RequestOperationManager {
 //        var parameters: [String : AnyObject] = ["term": term as AnyObject, "ll": "37.785771,-122.406165" as AnyObject]
         var parameters: [String : AnyObject] = ["term": term as AnyObject]
         
+        //        https://api.yelp.com/v2/search?term=food&ll=37.788022,-122.399797
         if userLocation != nil {
-            parameters["latitude"] = userLocation!.0 as AnyObject?
-            parameters["longitude"] = userLocation!.1 as AnyObject?
+            parameters["ll"] = "\(userLocation!.0),\(userLocation!.1)" as AnyObject?
         }
         
         if sort != nil {
-            parameters["sort_by"] = sort!.rawValue as AnyObject?
+            parameters["sort"] = sort!.rawValue as AnyObject?
         }
         
         if categories != nil && categories!.count > 0 {
-            parameters["categories"] = (categories!).joined(separator: ",") as AnyObject?
+            parameters["category_filter"] = (categories!).joined(separator: ",") as AnyObject?
         }
         
         if deals != nil {
-            parameters["deals"] = deals! as AnyObject?
+            parameters["deals_filter"] = deals! as AnyObject?
         }
         
         if radius != nil {
-            parameters["radius"] = radius!.rawValue as AnyObject?
+            parameters["radius_filter"] = radius!.rawValue as AnyObject?
         }
         
-        if openNow != nil{
-            parameters["open_now"] = openNow! as AnyObject?
-        }
+//        if openNow != nil{
+//            parameters["open_now"] = openNow! as AnyObject?
+//        }
         
         print(parameters)
         
